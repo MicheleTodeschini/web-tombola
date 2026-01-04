@@ -24,3 +24,22 @@
     font-size: 0.9rem; 
     font-weight: 700;
 }
+
+.tombola-cell .active {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem; 
+    font-weight: 700;
+}
+
+.tombola-extraction{
+  display: flex;
+  justify-content: center;   
+  gap: 15px;               
+  margin-top: 2rem; 
+}
