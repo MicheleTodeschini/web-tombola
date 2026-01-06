@@ -3,23 +3,23 @@ import numbers from "../data/numbers"
 
 export default function Main() {
 
-    const [extractNumber, setExtractNumber] = useState()
+    const [extractNumber, setExtractNumber] = useState([])
 
-    const [extracted, setExtracted] = useState(0)
+    const [extracted, setExtracted] = useState()
 
 
     function extract_number() {
 
         let dummy = Math.floor(Math.random() * 90) + 1;
         setExtracted(dummy)
+        setExtractNumber(prev => [...prev, dummy]);
 
-        if (extracted == numbers) {
-            setExtractNumber(numbers)
-                .classList.add('active');
 
-        }
+
         console.log(extracted);
         console.log(extractNumber);
+
+
 
     }
 
@@ -27,11 +27,14 @@ export default function Main() {
         <>
             <div className="container">
                 <div className="tombola-grid">
-                    {
-                        numbers.map(number => (
-                            <div key={number} className="tombola-cell">{number}</div>
-                        ))
-                    }
+                    {numbers.map(number => (
+                        <div
+                            key={number}
+                            className={`tombola-cell ${extractNumber.includes(number) ? "active" : ""}`}
+                        >
+                            {number}
+                        </div>
+                    ))}
                 </div>
                 <div className="tombola-extraction">
                     <button className="btn btn-success" onClick={extract_number}>Estrai</button>
